@@ -7,6 +7,7 @@ const uglify =require('gulp-uglify-es').default;
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
 const del = require('del');
+const cssmin = require('gulp-cssmin');
 
 function browserSync() {
     browser_sync.init({
@@ -43,20 +44,29 @@ function scripts() {
     ])
         .pipe(concat('main.min.js'))
         .pipe(uglify())
-        .pipe(dest('dist/js'))
+        .pipe(dest('app/js'))
         .pipe(browser_sync.stream())
 }
 
-function styles() {
-    return src('app/scss/style.scss')
+function sass() {
+    return src('app/scss/**/*.scss')
         .pipe(scss({outputStyle: 'compressed'}))
         .pipe(concat('style.min.css'))
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 10 version'],
             grid: true
         }))
-        .pipe(dest('dist/css'))
+        .pipe(dest('app/css'))
         .pipe(browser_sync.stream())
+}
+
+function style() {
+    return src([
+        'node_modules/normalize.css/normalize.css'
+    ])
+        .pipe(concat('libs.min.css'))
+        .pipe(cssmin())
+        .pipe(dest('app/css'))
 }
 
 function build() {
@@ -76,7 +86,7 @@ function fonts() {
 }
 
 function watching() {
-    watch(['app/scss/**/*.scss'], styles);
+    watch(['app/scss/**/*.scss'], sass);
     watch(['app/js/main.js'], scripts);
     watch(['app/images/**/*'], images);
     watch(['app/fonts/!**/!*.{eot,woff,woff2,ttf,svg}'], fonts);
@@ -84,7 +94,8 @@ function watching() {
 
 }
 
-exports.styles = styles;
+exports.style = style;
+exports.sass = sass;
 exports.watching = watching;
 exports.browserSync = browserSync;
 exports.scripts = scripts;
@@ -93,4 +104,4 @@ exports.fonts = fonts;
 exports.cleanDist = cleanDist;
 
 exports.build = series(cleanDist, build);
-exports.default = parallel(styles, scripts, images, fonts, browserSync, watching);
+exports.default = parallel(style, sass, scripts, images, fonts, browserSync, watching);
