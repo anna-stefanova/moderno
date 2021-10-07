@@ -21,8 +21,11 @@
     "gulp-uglify-es": "^2.0.0",
     "jquery": "^3.5.1",
     "mixitup": "^3.3.1",
+    "rateyo": "^2.3.5",
     "node-normalize-scss": "^8.1.2",
     "slick-carousel": "^1.8.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "owl.carousel": "^2.3.4"
+  }
 }

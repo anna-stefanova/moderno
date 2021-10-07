@@ -13,7 +13,6 @@
     color: $bg;
     font-weight: 500;
     cursor: pointer;
-
     &:focus {
       outline: $red solid 1px;
     }
@@ -85,6 +84,7 @@
   &-author {
     display: flex;
     align-items: center;
+    max-width: 245px;
 
     .avatar {
       display: inline-block;
@@ -103,6 +103,13 @@
       font-weight: 500;
     }
   }
+  &-star {
+    font-size: 12px;
+    color: #b0bec5;
+    span {
+      color: $bg;
+    }
+  }
 }
 
 .products__bottom-btn {
@@ -115,6 +122,9 @@
     color: $bg;
     padding: 20px 30px;
     cursor: pointer;
+    &:focus {
+      outline: $red solid 1px;
+    }
     &.mixitup-control-active {
       background-color: $red;
       color: #ffffff;
