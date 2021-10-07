@@ -12,13 +12,19 @@ const cssmin = require('gulp-cssmin');
 function browserSync() {
     browser_sync.init({
         server: {
-            baseDir: "app/"
+            baseDir: "dist/"
         }
     });
 }
 
 function cleanDist() {
     return del('dist');
+}
+
+function html() {
+    return src('app/*.html', {base: 'app/'})
+        .pipe(dest('dist/'))
+        .pipe(browser_sync.stream())
 }
 
 function images() {
@@ -34,45 +40,59 @@ function images() {
                 ]
             })
         ]))
-        .pipe(dest('dist/images'));
+        .pipe(dest('dist/images/'));
 }
 
 function scripts() {
     return src([
         'node_modules/jquery/dist/jquery.js',
-        'app/js/main.js'
+        'node_modules/mixitup/dist/mixitup.js',
+        'node_modules/slick-carousel/slick/slick.js'
     ])
+        .pipe(concat('libs.min.js'))
+        .pipe(uglify())
+        .pipe(dest('dist/js/'))
+}
+
+function js() {
+    return src('app/js/main.js')
         .pipe(concat('main.min.js'))
         .pipe(uglify())
-        .pipe(dest('app/js'))
+        .pipe(dest('dist/js/'))
         .pipe(browser_sync.stream())
 }
 
 function sass() {
-    return src('app/scss/**/*.scss')
-        .pipe(scss({outputStyle: 'compressed'}))
-        .pipe(concat('style.min.css'))
+    return src('app/scss/*.scss')
+        .pipe(scss({
+            outputStyle: 'compressed',
+            includePaths: './node_modules/'
+        }))
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 10 version'],
             grid: true
         }))
-        .pipe(dest('app/css'))
+        .pipe(concat('style.min.css'))
+
+        .pipe(dest('dist/css/'))
         .pipe(browser_sync.stream())
 }
 
 function style() {
     return src([
-        'node_modules/normalize.css/normalize.css'
+        'node_modules/css-reset-and-normalize/css/reset-and-normalize.css'
+
     ])
         .pipe(concat('libs.min.css'))
         .pipe(cssmin())
-        .pipe(dest('app/css'))
+        .pipe(dest('dist/css/'))
 }
 
 function build() {
     return src([
         'app/css/style.min.css',
         'app/fonts/**/*',
+        'app/js/libs.min.js',
         'app/js/main.min.js',
         'app/*.html'
     ], {base: 'app'})
@@ -81,27 +101,29 @@ function build() {
 
 function fonts() {
     return src("app/fonts/**/*.{eot,woff,woff2,ttf,svg}")
-        .pipe(dest('dist/fonts'))
+        .pipe(dest('dist/fonts/'))
         .pipe(browser_sync.stream())
 }
 
 function watching() {
     watch(['app/scss/**/*.scss'], sass);
-    watch(['app/js/main.js'], scripts);
+    watch(['app/js/*.js'], js);
     watch(['app/images/**/*'], images);
     watch(['app/fonts/!**/!*.{eot,woff,woff2,ttf,svg}'], fonts);
-    watch('app/*.html').on('change', browser_sync.reload);
+    watch('app/*.html', html);
 
 }
 
+exports.html = html;
 exports.style = style;
 exports.sass = sass;
 exports.watching = watching;
 exports.browserSync = browserSync;
 exports.scripts = scripts;
+exports.js = js;
 exports.images = images;
 exports.fonts = fonts;
 exports.cleanDist = cleanDist;
 
 exports.build = series(cleanDist, build);
-exports.default = parallel(style, sass, scripts, images, fonts, browserSync, watching);
+exports.default = parallel(html, style, sass, scripts, js, images, fonts, browserSync, watching);
