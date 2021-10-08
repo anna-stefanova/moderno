@@ -14,12 +14,14 @@
 
 .tutorials__item {
   &-images {
+    display: block;
     min-height: 270px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
   }
   &-title {
+    display: block;
     background-color: #f8f8f8;
     font-size: 24px;
     text-align: center;
