@@ -13,13 +13,13 @@
   &-title {
     margin-bottom: 10px;
     font-size: 48px;
-    font-weight: 600;
+    @include f700;
     line-height: 72px;
   }
   &-text {
     margin-bottom: 50px;
     font-size: 20px;
-    font-weight: 500;
+    @include f500;
     line-height: 30px;
   }
   &-form {
@@ -35,7 +35,7 @@
       height: 56px;
       border: none;
       font-size: 14px;
-      font-weight: 500;
+      @include f500;
       padding-left: 25px;
       padding-right: 60px;
 

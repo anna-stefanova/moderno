@@ -1,6 +1,9 @@
-@import "vars";
-@import "global";
 @import "fonts";
+@import "vars";
+@import "mixins";
+@import "global";
+
+
 
 
 /* Blocks */
@@ -9,6 +12,7 @@
 @import "blocks/search";
 @import "blocks/products";
 @import "blocks/product-slider";
+@import "blocks/advantages";
 
 
 
