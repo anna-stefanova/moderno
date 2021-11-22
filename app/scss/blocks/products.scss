@@ -55,6 +55,7 @@
     min-height: 90px;
     @include f500;
     border-bottom: 1px solid #e7ecf2;
+
   }
   &-name {
     max-width: 310px;
@@ -80,6 +81,7 @@
     align-items: center;
     min-height: 70px;
     padding: 10px 30px;
+
   }
   &-author {
     display: flex;

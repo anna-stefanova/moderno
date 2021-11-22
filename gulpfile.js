@@ -86,7 +86,7 @@ function style() {
         'node_modules/rateyo/src/jquery.rateyo.css',
         'node_modules/owl.carousel/dist/assets/owl.carousel.css',
         /*'node_modules/owl.carousel/dist/assets/owl.theme.default.css'*/
-
+        'node_modules/animate.css/animate.css',
     ])
         .pipe(concat('libs.min.css'))
         .pipe(cssmin())

@@ -7,3 +7,9 @@
   font-family: 'Roboto-Bold', sans-serif;
   font-weight: 700;
 }
+
+@mixin breakpoint($br) {
+  @media (max-width: $br) {
+    @content;
+  }
+}

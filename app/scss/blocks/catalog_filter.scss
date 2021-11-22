@@ -1,0 +1,22 @@
+.catalog {
+  margin-bottom: 110px;
+}
+.catalog__filter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border: #dedede solid 1px;
+  & button {
+    background-color: transparent;
+    border: none;
+    &:focus {
+      outline: #dedede dotted 1px;
+    }
+  }
+}
+.catalog__filter-btngrid {
+  margin-left: auto;
+  margin-right: 5px;
+}

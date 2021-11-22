@@ -8,13 +8,31 @@
     display: flex;
     justify-content: space-between;
     padding: 100px 0 80px;
+    @include breakpoint($large-bp) {
+      flex-wrap: wrap;
+    }
+    @include breakpoint($medium-bp) {
+      justify-content: flex-start;
+    }
   }
 }
 .footer__col {
   max-width: 270px;
   width: 100%;
+  @include breakpoint($small-bp) {
+    width: 100%;
+  }
   &-menu {
     max-width: 220px;
+    & + & {
+      @include breakpoint($medium-bp) {
+        margin-left: 40px;
+      }
+      @include breakpoint($small-bp) {
+        margin-left: 0;
+        margin-top: 30px;
+      }
+    }
   }
   &-title {
     font-family: 'Raleway-Bold', sans-serif;
@@ -57,6 +75,18 @@
     position: absolute;
   }
 }
+.footer__col-address {
+  @include breakpoint($large-bp) {
+    margin-bottom: 30px;
+    min-width: 100%;
+  }
+}
+.footer__col-social {
+  @include breakpoint($medium-bp) {
+    margin-top: 30px;
+    min-width: 100%;
+  }
+}
 .footer__info-phone {
   &:before {
     content: "\f095";
@@ -67,15 +97,6 @@
     margin-bottom: 15px;
     color: #b7c3c8;
     padding-left: 22px;
-    position: relative;
-    &:before {
-      content: '\f105';
-      color: $green;
-      position: absolute;
-      left: 0;
-      font-size: 18px;
-      font-family: icomoon;
-    }
   }
 }
 .footer__social-link {
@@ -196,11 +217,6 @@
     }
   }
 }
-
-
-
-
-
 .footer__copy {
   border-top: 1px solid #919699;
   &-text {

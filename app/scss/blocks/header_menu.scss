@@ -1,0 +1,20 @@
+.header__menu {
+  background-color: $bg;
+  height: 60px;
+  z-index: -3;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  li {
+    display: inline-block;
+    & + li {
+      margin-left: 30px;
+    }
+  }
+  a {
+    font-size: 14px;
+    color: #ffffff;
+  }
+}
