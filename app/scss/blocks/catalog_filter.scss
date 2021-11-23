@@ -1,16 +1,35 @@
 .catalog {
   margin-bottom: 110px;
 }
+.catalog__inner {
+  display: flex;
+  &-aside {
+    min-width: 270px;
+    margin-right: 30px;
+  }
+}
 .catalog__filter {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-  padding: 20px;
+  padding: 20px 25px 20px 20px;
   background-color: #fff;
   border: #dedede solid 1px;
   & button {
     background-color: transparent;
     border: none;
+    cursor: pointer;
+    padding: 0;
+    &.active:before {
+      color: $green;
+    }
+    &:before {
+      color: #90a4ae;
+      font-size: 16px;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+
     &:focus {
       outline: #dedede dotted 1px;
     }
@@ -18,5 +37,5 @@
 }
 .catalog__filter-btngrid {
   margin-left: auto;
-  margin-right: 5px;
+  margin-right: 3px;
 }

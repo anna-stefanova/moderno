@@ -1,3 +1,8 @@
+.catalog__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .products__item--catalog {
   max-width: 270px;
   &:hover {
