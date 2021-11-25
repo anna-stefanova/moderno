@@ -170,6 +170,7 @@
   }
 }
 .cart__menu {
+  z-index: 2;
   img {
     width: 73px;
     height: 57px;
@@ -177,6 +178,7 @@
   }
 }
 .message__menu, .notification__menu {
+  z-index: 2;
   & img {
     margin-right: 20px;
     width: 48px;
@@ -219,7 +221,6 @@
 .icons-color {
   color: $tomato;
 }
-
 .user {
   margin-left: 20px;
   margin-right: 25px;
@@ -257,7 +258,6 @@
     @include f700;
   }
 }
-
 li.user__box {
   position: relative;
   padding: 21px 0;
@@ -267,7 +267,6 @@ li.user__box {
     }
   }
 }
-
 .user__menu {
   border: 1px solid rgb(204, 204, 204);
   position: absolute;
@@ -280,8 +279,7 @@ li.user__box {
   transition-property:  clip-path;
   transition-duration: .3s;
   transition-delay: .15s;
-
-
+  z-index: 2;
   li {
     padding: 7.5px 0 7.5px 20px;
     transition: background-color .2s ease-in-out;
@@ -289,7 +287,6 @@ li.user__box {
       background-color: #f5f5f5;
     }
   }
-
   a {
     width: 100%;
     font-size: 12px;

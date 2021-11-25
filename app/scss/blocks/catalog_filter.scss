@@ -12,9 +12,55 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-  padding: 20px 25px 20px 20px;
+  padding: 20px 25px 20px 47px;
   background-color: #fff;
   border: #dedede solid 1px;
+  color: #707070;
+  position: relative;
+  z-index: 1;
+    &:before {
+    content: '\f161';
+    position: absolute;
+    font-family: 'icomoon';
+    font-size: 14px;
+    color: #455a64;
+    left: 20px;
+  }
+  select {
+    padding-right: 20px;
+    padding-left: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-color: transparent;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='sort' class='svg-inline--fa fa-sort fa-w-10' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='%23707070' d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z'%3E%3C/path%3E%3C/svg%3E");
+    background-size:
+            15px 15px,
+            15px 15px,
+            11px 15em;
+    background-position:
+            calc(100%) calc(1em - 10px);
+    background-repeat: no-repeat;
+    font-size: 14px;
+    color: #707070;
+    option {
+      padding-left: 10px;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      color: #707070;
+      background-color: #ffffff;
+      &:hover {
+        background-color: #707070;
+        color: #ffffff;
+      }
+    }
+  }
   & button {
     background-color: transparent;
     border: none;
@@ -29,7 +75,6 @@
       padding-right: 5px;
       padding-left: 5px;
     }
-
     &:focus {
       outline: #dedede dotted 1px;
     }
@@ -38,4 +83,45 @@
 .catalog__filter-btngrid {
   margin-left: auto;
   margin-right: 3px;
+}
+
+.irs--round .irs-from, .irs--round .irs-to {
+  font-size: 15px;
+  background-color: transparent;
+  color: #78909c;
+  top: 56px;
+  &:before {
+    display: none;
+  }
+}
+.irs--round .irs-handle {
+  top: 30px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid $green;
+  background-color: #fff;
+  border-radius: 24px;
+  box-shadow: none;
+}
+.irs--round .irs-bar {
+  background-color: #37474f;
+}
+
+button.aside__range-btn {
+  margin-top: 50px;
+  border: none;
+  background-color: $green;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: 'Roboto-Medium', sans-serif;
+  font-weight: 500;
+  @include f500;
+  padding: 11px 72px 11px 52px;
+  width: 205px;
+  cursor: pointer;
+  &:before {
+    content:'\f002';
+    font-family: 'icomoon', serif;
+    margin-right: 10px;
+  }
 }
