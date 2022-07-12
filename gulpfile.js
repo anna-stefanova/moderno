@@ -1,6 +1,6 @@
 const { src, dest, watch, parallel, series } = require('gulp');
 
-const scss = require('gulp-sass');
+const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const browser_sync = require('browser-sync').create();
 const uglify =require('gulp-uglify-es').default;
@@ -69,10 +69,7 @@ function js() {
 
 function sass() {
     return src('app/scss/*.scss')
-        .pipe(scss({
-            outputStyle: 'compressed',
-            includePaths: './node_modules/'
-        }))
+        .pipe(scss.sync().on('error', scss.logError))
         .pipe(autoprefixer({
             overrideBrowserslist: ['last 10 version'],
             grid: true
