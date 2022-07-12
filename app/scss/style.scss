@@ -1,34 +1,23 @@
-@import "vars";
-@import "global";
 @import "fonts";
+@import "vars";
+@import "mixins";
+@import "global";
 
-.header__top-inner {
-  display: flex;
-  justify-content: space-between;
-  height: 90px;
-  align-items: center;
-}
 
-.header__text {
-  margin-left: auto;
-  margin-right: 25px;
-  color: $grey;
-  span {
-    color: $red;
-  }
-}
+/* Blocks */
 
-.header__btn {
-  padding: 9px;
-  width: 72px;
-  border-radius: 4px;
+@import "blocks/header_top";
+@import "blocks/header_menu";
+@import "blocks/search";
+@import "blocks/products";
+@import "blocks/product-slider";
+@import "blocks/advantages";
+@import "blocks/author";
+@import "blocks/tutorials";
+@import "blocks/footer";
+@import "blocks/breadcrumbs";
+@import "blocks/catalog_filter";
+@import "blocks/catalog_aside";
+@import "blocks/catalog_list";
+@import "blocks/pagination";
 
-  &-login {
-    background-color: $green;
-  }
-
-  &-register {
-    background-color: $red;
-    margin-left: 7px;
-  }
-}

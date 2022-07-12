@@ -1,0 +1,38 @@
+.author {
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  min-height: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.author__box{
+  max-width: 650px;
+  width: 100%;
+  min-height: 215px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $green;
+  &-title {
+    font-size: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    margin-right: 45px;
+    max-width: 260px;
+    span {
+      @include f700;
+    }
+    animation: bounce; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
+    animation-iteration-count: infinite;
+  }
+  &-link {
+    font-size: 18px;
+    line-height: 36px;
+    padding: 14px 40px;
+    background-color: #fff;
+  }
+ }

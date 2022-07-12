@@ -1,0 +1,32 @@
+.tutorials {
+  padding: 67px 0 120px;
+  background-color: #fff;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+  }
+  &__item {
+    max-width: 370px;
+    width: 100%;
+  }
+}
+
+.tutorials__item {
+  &-images {
+    display: block;
+    min-height: 270px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  &-title {
+    display: block;
+    background-color: #f8f8f8;
+    font-size: 24px;
+    text-align: center;
+    @include f700;
+    padding: 30px 10px;
+    color: $bg;
+  }
+}

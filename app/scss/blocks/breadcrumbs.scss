@@ -1,0 +1,23 @@
+.breadcrumbs {
+  margin: 45px 0 40px;
+}
+.breadcrumbs__list-item {
+  display: inline-block;
+  padding-right: 13px;
+  margin-right: 10px;
+  position: relative;
+  color: $bg;
+  a {
+    color: #b0bec5;
+  }
+
+  &:after {
+    position: absolute;
+    content: '-';
+    color: $green;
+    right: 0;
+  }
+  &:last-child:after {
+    display: none;
+  }
+}
