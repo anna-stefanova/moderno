@@ -31,6 +31,9 @@
     "ion-rangeslider": "^2.3.1",
     "jquery-form-styler": "^2.0.2",
     "nouislider": "^15.6.0",
-    "owl.carousel": "^2.3.4"
+    "owl.carousel": "^2.3.4",
+    "gulp-uglify-es": "^2.0.0",
+    "jquery": "^3.5.1",
+    "node-normalize-scss": "^8.1.2"
   }
 }
