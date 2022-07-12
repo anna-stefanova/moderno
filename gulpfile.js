@@ -11,7 +11,7 @@ const del = require('del');
 function browserSync() {
     browser_sync.init({
         server: {
-            baseDir: "app/"
+            baseDir: "dist/"
         }
     });
 }
